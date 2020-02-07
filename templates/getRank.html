@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #c0c0c0;
+    }
+
+    th, td {
+        border: 1px solid #d0d0d0;
+        color: #404060;
+        padding: 10px;
+    }
+
+    th {
+        background-color: #09c;
+        font: bold 16px "微软雅黑";
+        color: #fff;
+    }
+
+    td {
+        font: 14px "微软雅黑";
+    }
+
+    tbody tr {
+        background-color: #f0f0f0;
+    }
+
+    tbody tr:hover {
+        cursor: pointer;
+        background-color: #fafafa;
+    }
+</style>
+
+<body>
+    <a href="/logout/">退出登录</a>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>排名</th>
+            <th>客户端</th>
+            <th>分数</th>
+        </tr>
+        <br>
+        </thead>
+        <tbody>
+        {% for rank in rankList %}
+            <tr>
+                <td>{{ rank.location }}</td>
+                <td>{{ rank.cname }}</td>
+                <td>{{ rank.cscore }}</td>
+            </tr>
+            <br>
+            {{ rankS }}
+        {% endfor %}
+        <tr>
+            <td>{{ currentRank }}</td>
+            <td>{{ info.cname }}</td>
+            <td>{{ info.cscore }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+{% if rankList.has_previous %}
+     <a href="/getRankList?pageNum={{ rankList.previous_page_number }}">上一页</a>
+{% endif %}
+{% if rankList.has_next %}
+    <a href="/getRankList?pageNum={{ rankList.next_page_number }}">下一页</a>
+{% endif %}
+
+
+</body>
+</html>
