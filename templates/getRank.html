@@ -45,8 +45,8 @@
 </style>
 
 <body>
-    <a href="/logout/">退出登录</a>
-    <table border="1">
+<a href="/logout/">退出登录</a>
+    <table border="1" class="table table-striped">
         <thead>
         <tr>
             <th>排名</th>
@@ -62,7 +62,6 @@
                 <td>{{ rank.cname }}</td>
                 <td>{{ rank.cscore }}</td>
             </tr>
-            <br>
             {{ rankS }}
         {% endfor %}
         <tr>
@@ -72,9 +71,8 @@
         </tr>
         </tbody>
     </table>
-
 {% if rankList.has_previous %}
-     <a href="/getRankList?pageNum={{ rankList.previous_page_number }}">上一页</a>
+    <a href="/getRankList?pageNum={{ rankList.previous_page_number }}">上一页</a>
 {% endif %}
 {% if rankList.has_next %}
     <a href="/getRankList?pageNum={{ rankList.next_page_number }}">下一页</a>
