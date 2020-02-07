@@ -103,7 +103,7 @@ def login(request):
     try:
         RankingList.objects.get(cname=cname)
         request.session['cname'] = cname
-        return render(request, 'index.html')
+        return redirect('/index/')
     except:
         return HttpResponse('该客户端不存在')
 
